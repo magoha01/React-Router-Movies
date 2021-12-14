@@ -15,7 +15,6 @@ export default function App () {
         .get('http://localhost:5000/api/movies') // Study this endpoint with Postman
         .then(response => {
           // Study this response with a breakpoint or log statements
-          debugger
           // and set the response data as the 'movieList' slice of state
           setMovieList(response.data)
         })
@@ -35,15 +34,14 @@ export default function App () {
       <SavedList list={[ /* This is stretch */]} />
 
       <div>Replace this Div with your Routes</div>
-          {/* <Link to= "/">Home</Link>
-          <Link to= "/items-List">Shop</Link> */}
+      <Link to= "/">Home</Link>
 
           <Route exact path="/">
             <MovieList movies={movieList}/>
           </Route>
 
           <Route path='/movies/:id'> 
-            <Movie />
+            <Movie movies={movieList} />
          </Route> 
     </div>
   );
